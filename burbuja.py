@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 #CÓDIGO QUE NOS DICE EL PROMEDIO DE UN GRUPO DE ALUMNOS, POR MEDIO DE UN ARCHIVO DE TEXTO
 def leer_alumnos(archivo):
     alumnos = []
@@ -51,3 +52,13 @@ print(f"Promedio del grupo: {promedio:.2f}")
 print("Lista de alumnos y calificaciones en orden ascendente:")
 for nombre, calificacion in alumnos:
     print(f"{nombre}: {calificacion}")
+
+# Crear el histograma de las calificaciones
+calificaciones = [calificacion for nombre, calificacion in alumnos]
+plt.hist(calificaciones, bins=range(0, 11), edgecolor='black', alpha=0.7)
+plt.xlabel('Calificaciones')
+plt.ylabel('Número de estudiantes')
+plt.title('Distribución de Calificaciones')
+plt.xticks(range(0, 11))
+plt.grid(axis='y')
+plt.show()
